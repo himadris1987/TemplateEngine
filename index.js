@@ -3,7 +3,7 @@ const inquirer = require ("inquirer");
 const fs = require ("fs");
 const util = require ("util");
 
-const jest = require("just");
+const jest = require("jest");
 const generateHTML = require ("./generatehtml")
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -14,7 +14,7 @@ function promptUser () {
     return inquirer.prompt ([
         {
             type: "input",
-            name: "Manager",
+            name: "nameManager",
             message: "Enter name of Manager:"
         },
         {
@@ -90,7 +90,7 @@ function promptUser () {
 
 {
     type: "input",
-    name: "idntern",
+    name: "idIntern",
     message: "Enter Id of Intern:"
 },
 
@@ -111,7 +111,7 @@ function promptUser () {
 // Write files into html
 async function init() {
     console.log ("Welcome please Enter Information")
-}
+
 try {
     const answers = await promptUser();
     const html = generateHTML (answers);
